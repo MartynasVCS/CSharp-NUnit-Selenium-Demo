@@ -57,6 +57,7 @@
     <Compile Include="Pages\Common.cs" />
     <Compile Include="Pages\DemoQA\RadioButtonPage.cs" />
     <Compile Include="Pages\DemoQA\TextBoxPage.cs" />
+    <Compile Include="Pages\SeleniumEasy\BasicFirstFormDemoPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
