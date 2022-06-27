@@ -9,7 +9,6 @@ namespace Tests.DemoQA
         [OneTimeSetUp]
         public void setup()
         {
-
             Driver.setDriver();
             Driver.open("https://demoqa.com/radio-button");
         }
