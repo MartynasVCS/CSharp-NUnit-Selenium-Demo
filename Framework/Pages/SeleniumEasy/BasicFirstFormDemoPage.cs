@@ -26,5 +26,29 @@
             string locator = "//*[@id='display']";
             return Common.getElementText(locator);
         }
+
+        public static void enterInputA(string input)
+        {
+            string locator = "//*[@id='sum1']";
+            Common.sendKeysToElement(locator, input); 
+        }
+
+        public static void enterInputB(string input)
+        {
+            string locator = "//*[@id='sum2']";
+            Common.sendKeysToElement(locator, input);
+        }
+
+        public static void clickGetTotalButton()
+        {
+            string locator = "//*[@id='gettotal']/button";
+            Common.clickElement(locator);
+        }
+
+        public static string readTotal()
+        {
+            string locator = "//*[@id='displayvalue']";
+            return Common.getElementText(locator);
+        }
     }
 }
