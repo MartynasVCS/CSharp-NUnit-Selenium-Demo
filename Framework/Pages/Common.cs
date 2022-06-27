@@ -12,6 +12,13 @@ namespace Framework.Pages
             return Driver.getDriver().FindElement(By.XPath(locator));
         }
 
+        public static void selectOptionByValue(string locator, string value)
+        {
+            IWebElement element = getElement(locator);
+            SelectElement selectElement = new SelectElement(element);
+            selectElement.SelectByValue(value);
+        }
+
         public static void sendKeysToElement(string locator, string keys)
         {
             getElement(locator).SendKeys(keys);
