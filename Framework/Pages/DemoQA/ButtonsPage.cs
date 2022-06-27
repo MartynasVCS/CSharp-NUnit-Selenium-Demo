@@ -13,5 +13,17 @@
             string locator = "//*[@id='dynamicClickMessage']";
             return Common.getElementText(locator);
         }
+
+        public static void rightClick()
+        {
+            string locator = "//*[@id='rightClickBtn']";
+            Common.performRightClick(locator);
+        }
+
+        public static string readMessageRightClick()
+        {
+            string locator = "//*[@id='rightClickMessage']";
+            return Common.getElementText(locator);
+        }
     }
 }

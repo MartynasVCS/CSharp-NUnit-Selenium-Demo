@@ -25,6 +25,18 @@ namespace Tests.DemoQA
             Assert.AreEqual(expectedMessage, actualMessage);
         }
 
+        [Test]
+        public static void rightClick()
+        {
+            string expectedMessage = "You have done a right click";
+            string actualMessage;
+
+            ButtonsPage.rightClick();
+            actualMessage = ButtonsPage.readMessageRightClick();
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
+
         [TearDown]
         public static void close()
         {

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
@@ -17,6 +18,15 @@ namespace Framework.Pages
             IWebElement element = getElement(locator);
             SelectElement selectElement = new SelectElement(element);
             selectElement.SelectByValue(value);
+        }
+
+        internal static void performRightClick(string locator)
+        {
+            IWebElement element = getElement(locator);
+            Actions actions = new Actions(Driver.getDriver());
+
+            actions.ContextClick(element);
+            actions.Perform();
         }
 
         public static void sendKeysToElement(string locator, string keys)
