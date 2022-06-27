@@ -13,12 +13,5 @@
             string locator = "//*[@class='text-success']";
             return Common.getElementText(locator);
         }
-
-        public static void getElementWithWait()
-        {
-            string locator = "";
-            Common.waitForElementToBeVisible(locator);
-            Common.clickElement(locator);
-        }
     }
 }
