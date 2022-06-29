@@ -37,5 +37,17 @@ namespace Tests.DemoQA
 
             Assert.AreEqual(expectedMessage, actualMessage);
         }
+
+        [Test]
+        public static void doubleClick()
+        {
+            string expectedMessage = "You have done a double click";
+            string actualMessage;
+
+            ButtonsPage.doubleClick();
+            actualMessage = ButtonsPage.readMessageDoubleClick();
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
     }
 }

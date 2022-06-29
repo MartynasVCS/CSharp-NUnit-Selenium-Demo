@@ -28,6 +28,14 @@ namespace Framework.Pages
             actions.ContextClick(element);
             actions.Perform();
         }
+        public static void performDoubleClick(string locator)
+        {
+            IWebElement element = getElement(locator);
+            Actions actions = new Actions(Driver.getDriver());
+
+            actions.DoubleClick(element);
+            actions.Perform();
+        }
 
         public static void sendKeysToElement(string locator, string keys)
         {

@@ -25,5 +25,17 @@
             string locator = "//*[@id='rightClickMessage']";
             return Common.getElementText(locator);
         }
+
+        public static void doubleClick()
+        {
+            string locator = "//*[@id='doubleClickBtn']";
+            Common.performDoubleClick(locator);
+        }
+
+        public static string readMessageDoubleClick()
+        {
+            string locator = "//*[@id='doubleClickMessage']";
+            return Common.getElementText(locator);
+        }
     }
 }
