@@ -1,15 +1,15 @@
 ﻿using Framework;
 using Framework.Pages.DemoQA;
 using NUnit.Framework;
+using Tests.BaseClasses;
 
 namespace Tests.DemoQA
 {
-    public class RadioButton
+    public class RadioButton : BaseTest
     {
-        [OneTimeSetUp]
-        public void setup()
+        [SetUp]
+        public void openPage()
         {
-            Driver.setDriver();
             Driver.open("https://demoqa.com/radio-button");
         }
 
@@ -22,12 +22,6 @@ namespace Tests.DemoQA
             string actualMessage = RadioButtonPage.getMessage();
 
             Assert.IsTrue(actualMessage.Contains(expectedMessage));
-        }
-
-        [OneTimeTearDown]
-        public void close()
-        {
-            Driver.closeDriver();
         }
     }
 }

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClasses\BaseTest.cs" />
     <Compile Include="DemoQA\RadioButton.cs" />
     <Compile Include="DemoQA\Buttons.cs" />
     <Compile Include="DemoQA\TextBox.cs" />

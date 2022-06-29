@@ -1,16 +1,16 @@
 ﻿using Framework;
 using Framework.Pages.DemoQA;
 using NUnit.Framework;
+using Tests.BaseClasses;
 
 namespace Tests.DemoQA
 {
     [Parallelizable(scope: ParallelScope.Children)]
-    public class Buttons
+    public class Buttons : BaseTest
     {
         [SetUp]
-        public static void setup()
+        public static void openPage()
         {
-            Driver.setDriver();
             Driver.open("https://demoqa.com/buttons");
         }
 
@@ -36,12 +36,6 @@ namespace Tests.DemoQA
             actualMessage = ButtonsPage.readMessageRightClick();
 
             Assert.AreEqual(expectedMessage, actualMessage);
-        }
-
-        [TearDown]
-        public static void close()
-        {
-            Driver.closeDriver();
         }
     }
 }
