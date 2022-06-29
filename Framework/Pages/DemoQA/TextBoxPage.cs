@@ -2,6 +2,11 @@
 {
     public class TextBoxPage
     {
+        public static void open()
+        {
+            Driver.open(Constants.Urls.DemoQA.TextBoxPage);
+        }
+
         public static void enterFullName(string name)
         {
             string locator = "//*[@id='userName']";

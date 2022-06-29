@@ -1,5 +1,4 @@
-﻿using Framework;
-using Framework.Pages.DemoQA;
+﻿using Framework.Pages.DemoQA;
 using NUnit.Framework;
 using Tests.BaseClasses;
 
@@ -10,7 +9,7 @@ namespace Tests.DemoQA
         [SetUp]
         public static void openPage()
         {
-            Driver.open("https://demoqa.com/text-box");
+            TextBoxPage.open();
         }
 
         [Test]

@@ -2,6 +2,11 @@
 {
     public class RadioButtonPage
     {
+        public static void open()
+        {
+            Driver.open(Constants.Urls.DemoQA.RadioButtonPage);
+        }
+
         public static void clickYesRadioButton()
         {
             string locator = "//*[@for='yesRadio']";

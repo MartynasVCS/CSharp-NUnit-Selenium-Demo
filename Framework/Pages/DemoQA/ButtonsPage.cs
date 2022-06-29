@@ -2,6 +2,11 @@
 {
     public class ButtonsPage
     {
+        public static void open()
+        {
+            Driver.open(Constants.Urls.DemoQA.ButtonsPage);
+        }
+
         public static void leftClick()
         {
             string locator = "//*[text()='Click Me']";
