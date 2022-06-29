@@ -56,6 +56,7 @@
     <Compile Include="DemoQA\RadioButton.cs" />
     <Compile Include="DemoQA\Buttons.cs" />
     <Compile Include="DemoQA\TextBox.cs" />
+    <Compile Include="NonUI\DemoNUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumEasy\BasicCheckboxDemo.cs" />
     <Compile Include="SeleniumEasy\BasicFirstFormDemo.cs" />
