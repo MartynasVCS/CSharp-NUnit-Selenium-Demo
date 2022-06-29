@@ -17,5 +17,11 @@ namespace Tests.DemoQA
         {
             DynamicPropertiesPage.clickButtonEnabledAfter5Seconds();
         }
+
+        [Test]
+        public static void clickButtonWhichChangesTextColorAfterDelay()
+        {
+            DynamicPropertiesPage.clickButtonThatChangesTextColor();
+        }
     }
 }

@@ -69,5 +69,11 @@ namespace Framework.Pages
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locator)));
         }
+
+        public static void waitForElementAttributeToContainValue(string locator, string attributeName, string attributeValue)
+        {
+            new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10))
+               .Until(d => d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
+        }
     }
 }

@@ -12,5 +12,15 @@
             Common.waitForElementToBeClickable(locator);
             Common.clickElement(locator);
         }
+
+        public static void clickButtonThatChangesTextColor()
+        {
+            string locator = "//*[@id='colorChange']";
+            string attributeName = "class";
+            string attributeValue = "text-danger";
+            Common.waitForElementAttributeToContainValue(locator, attributeName, attributeValue);
+            Common.clickElement(locator);
+
+        }
     }
 }
