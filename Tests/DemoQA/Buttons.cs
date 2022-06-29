@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace Tests.DemoQA
 {
+    [Parallelizable(scope: ParallelScope.Children)]
     public class Buttons
     {
         [SetUp]
