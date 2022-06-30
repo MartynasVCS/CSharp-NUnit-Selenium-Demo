@@ -28,11 +28,15 @@ namespace Tests.SeleniumEasy
         }
 
         [Test]
-        public static void twoInputFields()
+        [TestCase("5", "7", "12")]
+        [TestCase("5", "-7", "-2")]
+        [TestCase("5", "T", "NaN")]
+        public static void twoInputFields(string inputA, string inputB, string expectedTotal)
         {
-            string inputA = "5";
-            string inputB = "7";
-            string expectedTotal = "12";
+            // old values used before refactoring to use TestCase annotation
+            //string inputA = "5";
+            //string inputB = "7";
+            //string expectedTotal = "12";
             string actualTotal;
 
             BasicFirstFormDemoPage.enterInputA(inputA);
