@@ -25,6 +25,32 @@ namespace Tests.SeleniumEasy
             Assert.AreEqual(expectedMessage, actualMessage);
         }
 
+        [Test]
+        public static void multipleCheckbox()
+        {
+            string expectedButtonCheckedText = "Uncheck All";
+            string expectedButtonUncheckedText = "Check All";
+            string actualButtonText;
+
+            // Click button and check button text
+            BasicCheckboxDemoPage.clickMultiCheckboxButton();
+            actualButtonText = BasicCheckboxDemoPage.readButtonText();
+            Assert.AreEqual(expectedButtonCheckedText, actualButtonText);
+
+            // Check status of all checkboxes
+            bool actualStatus = BasicCheckboxDemoPage.checkIfAllCheckboxesAreSelected();
+            Assert.AreEqual(true, actualStatus);
+
+            // Click button and check button text
+            BasicCheckboxDemoPage.clickMultiCheckboxButton();
+            actualButtonText = BasicCheckboxDemoPage.readButtonText();
+            Assert.AreEqual(expectedButtonUncheckedText, actualButtonText);
+
+            // Check status of all checkboxes
+            actualStatus = BasicCheckboxDemoPage.checkIfAllCheckboxesAreNotSelected();
+            Assert.AreEqual(true, actualStatus);
+        }
+
         [TearDown]
         public static void close()
         {

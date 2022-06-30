@@ -15,6 +15,11 @@ namespace Framework.Pages
             return Driver.getDriver().FindElement(By.XPath(locator));
         }
 
+        internal static List<IWebElement> getElements(string locator)
+        {
+            return Driver.getDriver().FindElements(By.XPath(locator)).ToList();
+        }
+
         internal static List<string> getCurrentWindowHandles()
         {
             return Driver.getDriver().WindowHandles.ToList();
@@ -30,6 +35,24 @@ namespace Framework.Pages
             IWebElement element = getElement(locator);
             SelectElement selectElement = new SelectElement(element);
             selectElement.SelectByValue(value);
+        }
+
+        internal static string getElementAttributeValue(string locator, string attributeName)
+        {
+            return getElement(locator).GetAttribute(attributeName);
+        }
+
+        internal static List<bool> getSelectedStatusForElements(string locator)
+        {
+            List<IWebElement> elementsList = getElements(locator);
+            List<bool> statusList = new List<bool>();
+
+            foreach (IWebElement element in elementsList)
+            {
+                statusList.Add(element.Selected);
+            }
+
+            return statusList;
         }
 
         internal static void switchToNewWindowFromParentWindowByHandle(string parentWindowHandle)
