@@ -3,6 +3,8 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Framework.Pages
 {
@@ -11,6 +13,11 @@ namespace Framework.Pages
         internal static IWebElement getElement(string locator)
         {
             return Driver.getDriver().FindElement(By.XPath(locator));
+        }
+
+        internal static List<string> getCurrentWindowHandles()
+        {
+            return Driver.getDriver().WindowHandles.ToList();
         }
 
         internal static void alertAccept()
@@ -23,6 +30,28 @@ namespace Framework.Pages
             IWebElement element = getElement(locator);
             SelectElement selectElement = new SelectElement(element);
             selectElement.SelectByValue(value);
+        }
+
+        internal static void switchToNewWindowFromParentWindowByHandle(string parentWindowHandle)
+        {
+            List<string> handles = getCurrentWindowHandles();
+            foreach (string handle in handles)
+            {
+                if (handle != parentWindowHandle)
+                {
+                    Common.switchToWindowByHandle(handle);
+                }
+            }
+        }
+
+        internal static void switchToWindowByHandle(string handle)
+        {
+            Driver.getDriver().SwitchTo().Window(handle);
+        }
+
+        internal static void closeWindowByHandle(string handle)
+        {
+            Driver.getDriver().SwitchTo().Window(handle).Close();
         }
 
         internal static void sendKeysToAlert(string keys)
@@ -91,6 +120,11 @@ namespace Framework.Pages
         {
             new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10))
                .Until(d => d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
+        }
+
+        internal static string getCurrentWindowHandle()
+        {
+            return Driver.getDriver().CurrentWindowHandle;
         }
     }
 }
