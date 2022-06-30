@@ -5,6 +5,6 @@
 
 ## Test cases
 1. Single input field
-	1.1. Enter message ("Test") to Single Input Field
-	1.2. Click "Show Message" button
-	1.3. Read and compare message
+    1. Enter message ("Test") to Single Input Field
+    2. Click "Show Message" button
+    3. Read and compare message
