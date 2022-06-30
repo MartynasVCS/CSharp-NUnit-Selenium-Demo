@@ -15,7 +15,7 @@ namespace Framework
             ChromeOptions options = new ChromeOptions();
             //options.AddArgument("--headless");
             //options.AddArgument("--start-maximized");
-            options.AddArgument("--window-size=1920,1280");
+            //options.AddArgument("--window-size=1920,1280");
 
             driver.Value = new ChromeDriver(options);
             driver.Value.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(10);
