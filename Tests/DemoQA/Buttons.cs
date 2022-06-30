@@ -4,7 +4,7 @@ using Tests.BaseClasses;
 
 namespace Tests.DemoQA
 {
-    [Parallelizable(scope: ParallelScope.Children)]
+    //[Parallelizable(scope: ParallelScope.Children)]
     public class Buttons : BaseTest
     {
         [SetUp]
@@ -13,7 +13,7 @@ namespace Tests.DemoQA
             ButtonsPage.open();
         }
 
-        [Test]
+        [Test, Order(1)]
         public static void leftClick()
         {
             string expectedMessage = "You have done a dynamic click";
@@ -25,7 +25,7 @@ namespace Tests.DemoQA
             Assert.AreEqual(expectedMessage, actualMessage);
         }
 
-        [Test]
+        [Test, Order(2)]
         public static void rightClick()
         {
             string expectedMessage = "You have done a right click";
@@ -37,7 +37,7 @@ namespace Tests.DemoQA
             Assert.AreEqual(expectedMessage, actualMessage);
         }
 
-        [Test]
+        [Test, Order(3)]
         public static void doubleClick()
         {
             string expectedMessage = "You have done a double click";
