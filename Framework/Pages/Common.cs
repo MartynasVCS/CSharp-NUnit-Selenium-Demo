@@ -8,21 +8,27 @@ namespace Framework.Pages
 {
     internal class Common
     {
-        public static IWebElement getElement(string locator)
+        internal static IWebElement getElement(string locator)
         {
             return Driver.getDriver().FindElement(By.XPath(locator));
         }
 
-        public static void alertAccept()
+        internal static void alertAccept()
         {
             Driver.getDriver().SwitchTo().Alert().Accept();
         }
 
-        public static void selectOptionByValue(string locator, string value)
+        internal static void selectOptionByValue(string locator, string value)
         {
             IWebElement element = getElement(locator);
             SelectElement selectElement = new SelectElement(element);
             selectElement.SelectByValue(value);
+        }
+
+        internal static void sendKeysToAlert(string keys)
+        {
+            Driver.getDriver().SwitchTo().Alert().SendKeys(keys);
+            alertAccept();
         }
 
         internal static void performRightClick(string locator)
@@ -33,7 +39,13 @@ namespace Framework.Pages
             actions.ContextClick(element);
             actions.Perform();
         }
-        public static void performDoubleClick(string locator)
+
+        internal static void alertDismiss()
+        {
+            Driver.getDriver().SwitchTo().Alert().Dismiss();
+        }
+
+        internal static void performDoubleClick(string locator)
         {
             IWebElement element = getElement(locator);
             Actions actions = new Actions(Driver.getDriver());
@@ -42,40 +54,40 @@ namespace Framework.Pages
             actions.Perform();
         }
 
-        public static void sendKeysToElement(string locator, string keys)
+        internal static void sendKeysToElement(string locator, string keys)
         {
             getElement(locator).SendKeys(keys);
         }
 
-        public static void clickElement(string locator)
+        internal static void clickElement(string locator)
         {
             getElement(locator).Click();
         }
 
-        public static string getElementText(string locator)
+        internal static string getElementText(string locator)
         {
             return getElement(locator).Text;
         }
 
-        public static void waitForElementToBeVisible(string locator)
+        internal static void waitForElementToBeVisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(locator)));
         }
 
-        public static void waitForElementToBeInvisible(string locator)
+        internal static void waitForElementToBeInvisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.XPath(locator)));
         }
 
-        public static void waitForElementToBeClickable(string locator)
+        internal static void waitForElementToBeClickable(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locator)));
         }
 
-        public static void waitForElementAttributeToContainValue(string locator, string attributeName, string attributeValue)
+        internal static void waitForElementAttributeToContainValue(string locator, string attributeName, string attributeValue)
         {
             new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10))
                .Until(d => d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
